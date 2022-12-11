@@ -2,7 +2,6 @@
   <div class="app-card" :class="{ 'news-card--medium': medium }">
     <div class="app-card__photo">
       <img :src="photo" :alt="title" />
-
       <div class="app-card__price" v-if="price !== ''">
         <h5>{{ price }}</h5>
       </div>

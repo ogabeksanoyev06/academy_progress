@@ -4,14 +4,15 @@
   position: relative;
 
   &.disabled {
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: none;
   }
 
   &-label {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 17px;
+    color: #898da6;
 
     &.error {
       .input__block-wrap {
@@ -20,7 +21,6 @@
         .input__block-error {
           display: block;
         }
-
       }
     }
   }
@@ -36,11 +36,12 @@
     position: relative;
     display: flex;
     align-items: center;
-    border: 1px solid $border-color;
+    border: 0px solid $border-color;
     border-radius: 10px;
+    background: #f6f6f8;
 
     &.error {
-      border-color: red;
+      border: 1px solid red;
     }
 
     &.focus-visible {
@@ -81,21 +82,21 @@
     height: 40px;
     font-size: 18px;
     padding: 10px 15px;
+    background: #f6f6f8;
     outline: none !important;
   }
 
   &-error {
-
   }
-
 }
 
 .input__details {
   min-height: 25px;
 
   span {
-    -webkit-animation: slide-in-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: slide-in-right 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      both;
+    animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -113,9 +114,7 @@
   &:last-child {
     min-height: auto;
   }
-
 }
-
 
 @-webkit-keyframes slide-in-right {
   0% {

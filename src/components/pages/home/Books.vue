@@ -6,7 +6,7 @@
         :line-height="isMobile ? 28 : 36"
         weight="700"
       >
-        Testlar va Kutubxona
+        Kitoblar
       </app-text>
       <div class="section__top-details">
         <router-link class="section__top-link" to="/">Barchasi</router-link>
@@ -14,7 +14,7 @@
     </div>
     <app-slider :list="list">
       <template #default="{ item, medium }">
-        <AppCard
+        <app-card-book
           :link="item.link"
           :title="item.title"
           :subtitle="item.subtitle"
@@ -29,11 +29,11 @@
 </template>
 <script>
 import AppSlider from "../../shared-components/AppSlider";
-import AppCard from "../../shared-components/AppCard";
+import AppCardBook from "@/components/shared-components/AppCardBook.vue";
 
 export default {
-  name: "AllTests",
-  components: { AppCard, AppSlider },
+  name: "AppBooks",
+  components: { AppSlider, AppCardBook },
   data() {
     return {
       list: [
@@ -41,14 +41,14 @@ export default {
           title: "Blok testlar",
           subtitle:
             "O’z mutaxasisligingizga doir bo’lgan fanlar va majburiy fanlar testlarini yeching",
-          photo: "/images/post8.png",
+          photo: "/images/book.png",
           value: "2",
         },
         {
           title: "O’quvchilar uchun test",
           subtitle:
             "5-11-sinf darsliklaridan tuzilgan testlarni berilgan vaqt ichida tez va oson yeching!",
-          photo: "/images/post9.png",
+          photo: "/images/book.png",
           value: "2",
           link: "choose-subject-school",
         },
@@ -56,7 +56,7 @@ export default {
           title: "IQ testlar",
           subtitle:
             "Aql,idrok koeffitsiyentini aniqlab,ma’lumotlar bilan ishlash qobiliyati va samarali yo’llarni qo’llash uchun ushbu testlarni yeching!",
-          photo: "/images/post10.png",
+          photo: "/images/book.png",
           value: "2",
           link: "choose-IQ-test",
         },
@@ -64,7 +64,7 @@ export default {
           title: "Kutubxona",
           subtitle:
             "Siz uchun qiziqarli bo’lgan yo’nalishga oid kitoblar va audio hikoyalarni bizdan topishingiz mumkin!",
-          photo: "/images/post11.png",
+          photo: "/images/book.png",
           value: "2",
         },
       ],

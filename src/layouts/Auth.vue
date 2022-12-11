@@ -7,8 +7,8 @@
             class="auth__header w-100"
             :class="isDesktopSmall ? 'justify-content-center' : ''"
           >
-            <div class="d-flex" :class="isMobile ? 'mb-30' : 'mb-60'">
-              <router-link to="/" class="logo">
+            <div class="d-flex mb-30">
+              <router-link to="/" class="auth_logo">
                 <img src="/svg/logo1.svg" class="mb-10" alt="" />
                 <AppText weight="700" size="22" line-height="24">
                   Progress Academy
@@ -33,7 +33,6 @@
 
       <div class="auth__column auth__photo greyBg" v-if="!isDesktopSmall">
         <img src="/images/login/login.png" class="auth__banner" alt="" />
-
         <div class="auth__professor">
           <kinesis-element class="layer" :strength="8">
             <img src="/images/login/login-professor.png" alt="" />

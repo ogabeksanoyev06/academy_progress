@@ -103,7 +103,9 @@
 .color-danger {
   color: $color-danger;
 }
-
+.bg-light {
+  background-color: #f6f6f8;
+}
 .science-categories {
   .app-card {
     display: flex;
@@ -222,12 +224,10 @@
   font-weight: 700;
   font-family: "Gilroy", sans-serif;
 }
-
 .content {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-
   &__main {
     max-width: calc(100% - 420px);
     width: 100%;
@@ -238,7 +238,6 @@
     }
   }
 }
-
 .sidebar {
   max-width: 390px;
   width: 100%;
@@ -254,20 +253,20 @@
       padding: 10px 20px;
       color: $color-text;
       font-weight: 700;
-      text-align: left;
       transition: 0.3s;
       border-radius: 10px;
       margin-bottom: 5px;
       line-height: 26px;
+      font-size: 16px;
 
       &.active {
-        background: #edf5ff;
-        color: $text-color-default;
+        background: #f5f5f7;
+        color: #a30041;
       }
 
       &:hover {
-        background: #edf5ff;
-        color: $text-color-default;
+        background: #f5f5f7;
+        color: #a30041;
       }
     }
   }

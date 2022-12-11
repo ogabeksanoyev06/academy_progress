@@ -16,6 +16,7 @@
         buttonText="Hoziroq boshlang"
       />
       <AllTests />
+      <Books />
     </div>
   </div>
 </template>
@@ -25,10 +26,17 @@ import IelstCourses from "@/components/pages/home/IelstCourses.vue";
 import HeroBanner from "../../../components/pages/home/HeroBanner";
 import CtaBanner from "@/components/pages/home/CtaBanner.vue";
 import AllTests from "@/components/pages/home/AllTests.vue";
+import Books from "@/components/pages/home/Books.vue";
 
 export default {
   name: "app-home",
-  components: { HeroBanner, IelstCourses, CtaBanner, AllTests },
+  components: {
+    HeroBanner,
+    IelstCourses,
+    CtaBanner,
+    AllTests,
+    Books,
+  },
   data() {
     return {};
   },

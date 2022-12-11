@@ -11,7 +11,7 @@
   >
     <div class="input__block" :class="disabled ? 'disabled' : ''">
       <label class="input__block-label">
-        <span v-if="label" class="input__block-title">{{ label }}</span>
+        <span v-if="label" class="input__block-title">* {{ label }}</span>
         <div class="input__block-wrap" :class="errors[0] ? 'error' : ''">
           <div class="input__block-prepend">
             <slot name="prepend"></slot>
@@ -36,7 +36,7 @@
           />
         </div>
         <div class="input__details" v-if="!hideDetails">
-          <span v-if="errors[0]" id="error"> {{ errors[0] }}</span>
+          <span v-if="errors[0]" id="error"> {{ label }} </span>
         </div>
       </label>
     </div>

@@ -96,6 +96,77 @@
                 >Ro'yxatdan o'tish
               </AppButton>
             </div>
+            <div
+              class="header__language"
+              :class="isMobileMedium ? '' : 'mr-20'"
+              v-if="!isMobileSmall"
+              @click="languageDropdown = !languageDropdown"
+              v-on-click-outside:excludedClass="hideLanguageDropdown"
+            >
+              <div class="header__language-icon">
+                <img src="/icons/globe.svg" alt="" />
+              </div>
+
+              <transition name="slide">
+                <div class="header__dropdown" v-if="languageDropdown">
+                  <ul
+                    class="header__dropdown-wrap bordered shadowed radius overflow"
+                  >
+                    <li class="header__dropdown-item">
+                      <router-link to="/" class="header__dropdown-link pa-10">
+                        <AppText size="14" line-height="18" weight="700">
+                          Uzbek
+                        </AppText>
+                      </router-link>
+                    </li>
+
+                    <li class="header__dropdown-item">
+                      <router-link to="/" class="header__dropdown-link pa-10">
+                        <AppText size="14" line-height="18" weight="700">
+                          Russian
+                        </AppText>
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </transition>
+            </div>
+            <div
+              class="header__account"
+              @click="accountDropdown = !accountDropdown"
+              v-on-click-outside:excludedClass="hideAccountDropdown"
+            >
+              <!-- <div class="header__account-photo" v-if="user && user.photo">
+                <img :src="baseURL + user.photo" alt="" />
+              </div> -->
+              <div class="header__account-photo">
+                <img src="/images/user-photo.jpg" alt="" />
+              </div>
+              <transition name="slide">
+                <div class="header__dropdown" v-if="accountDropdown">
+                  <ul class="header__dropdown-wrap shadowed radius overflow">
+                    <li class="header__dropdown-item">
+                      <router-link
+                        to="/cabinet"
+                        class="header__dropdown-link pa-10"
+                      >
+                        <AppText size="14" line-height="18" weight="700">
+                          Mening profilim
+                        </AppText>
+                      </router-link>
+                    </li>
+
+                    <li class="header__dropdown-item" @click.prevent="logout">
+                      <router-link to="/" class="header__dropdown-link pa-10">
+                        <AppText size="14" line-height="18" weight="700">
+                          Chiqish
+                        </AppText>
+                      </router-link>
+                    </li>
+                  </ul>
+                </div>
+              </transition>
+            </div>
           </div>
         </div>
       </div>
@@ -130,13 +201,20 @@ export default {
         },
         {
           id: 3,
-          title: "IELTS",
-          link: "/IELTS",
+          title: "Video kurslar",
+          link: "/video-course",
           submenu: false,
           children: [],
         },
         {
           id: 4,
+          title: "Xalqaro tadqiqotlar",
+          link: "/a",
+          submenu: false,
+          children: [],
+        },
+        {
+          id: 5,
           title: "Kutubxona",
           link: "/library",
           submenu: false,
@@ -162,6 +240,17 @@ export default {
   },
   computed: {
     ...mapGetters([""]),
+  },
+  methods: {
+    showNavigationDrawer() {
+      this.navigationDrawer = !this.navigationDrawer;
+    },
+    hideAccountDropdown() {
+      this.accountDropdown = false;
+    },
+    hideLanguageDropdown() {
+      this.languageDropdown = false;
+    },
   },
 };
 </script>

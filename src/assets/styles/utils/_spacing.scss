@@ -3,7 +3,9 @@
   width: 100%;
   display: block;
 }
-@each $margin in (5, 10,15,20,30,40,50,60,70,75,78,100,110,120,140,160) {
+@each $margin
+  in (5, 10, 15, 20, 30, 40, 50, 60, 70, 75, 78, 100, 110, 120, 140, 160)
+{
   .mb-#{$margin} {
     margin-bottom: #{$margin}px;
   }
@@ -31,6 +33,9 @@
 
 .mr-5 {
   margin-right: 5px;
+}
+.ml-5 {
+  margin-left: 5px;
 }
 
 .mr-10 {

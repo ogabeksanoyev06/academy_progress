@@ -5,7 +5,22 @@
         <div class="hero-banner__inner">
           <div class="hero-banner__content">
             <h1 class="hero-banner__title text-center mb-20">
-              <span class="color-main">PROGRESS </span> ACADEMY
+              <span class="color-main">
+                <vue-typer
+                  :text="['PROGRESS']"
+                  :repeat="Infinity"
+                  :shuffle="false"
+                  initial-action="typing"
+                  :pre-type-delay="70"
+                  :type-delay="100"
+                  :pre-erase-delay="2000"
+                  :erase-delay="252"
+                  erase-style="clear"
+                  :erase-on-complete="false"
+                  caret-animation="smooth"
+                ></vue-typer>
+              </span>
+              ACADEMY
             </h1>
             <app-text
               size="18"
@@ -32,11 +47,14 @@
 
 <script>
 import { KinesisContainer, KinesisElement } from "vue-kinesis";
+import { VueTyper } from "vue-typer";
+
 export default {
   name: "HeroBanner",
   components: {
     "kinesis-container": KinesisContainer,
     "kinesis-element": KinesisElement,
+    "vue-typer": VueTyper,
   },
   data() {
     return {
@@ -47,6 +65,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/assets/styles/abstracts/variables";
+.vue-typer .custom.caret {
+  display: none;
+}
+.vue-typer .custom.char.typed {
+  color: $color-main;
+}
 .hero-banner {
   background-color: #f5f5f7;
   position: relative;

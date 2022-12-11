@@ -47,22 +47,22 @@
 
   &__professor {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     bottom: 10%;
-    right: 10%;
+    left: 10%;
   }
 
   &__science {
     position: absolute;
-    z-index: 2;
-    top: 40%;
-    left: 10%;
+    z-index: 1;
+    top: 15%;
+    left: 15%;
   }
 
   &__test {
     position: absolute;
-    z-index: 2;
-    top: 15%;
+    z-index: 1;
+    top: 35%;
     right: 50px;
     max-width: 280px;
   }
@@ -91,6 +91,7 @@
   &__header {
     margin-top: auto;
     display: flex;
+    justify-content: center;
   }
 
   &__form {
@@ -109,7 +110,7 @@
     margin-top: auto;
   }
 
-  .logo {
+  .auth_logo {
     max-width: unset !important;
     display: flex;
     flex-direction: column;
@@ -157,8 +158,8 @@
     }
 
     &__round {
-      max-width: 600px;
-      max-height: 600px;
+      max-width: 560px;
+      max-height: 560px;
     }
 
     &__banner {
@@ -200,10 +201,6 @@
 
     &__photo {
       display: none;
-    }
-
-    &__header {
-      margin-top: unset;
     }
 
     &__footer {

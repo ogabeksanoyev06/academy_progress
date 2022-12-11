@@ -1,38 +1,17 @@
 @import "../abstracts/variables";
-.app-card {
+.app-card-audio {
   $self: &;
   $trans: 0.2s;
   position: relative;
   display: block;
-  overflow: hidden;
   border-radius: 10px;
-
-  &:before {
-    display: block;
-    content: "";
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    bottom: -15px;
-    left: -15px;
-  }
-
-  &__price {
-    position: absolute;
-    bottom: 20px;
-    left: 10px;
-    z-index: 2;
-    background: #bb6bd9;
-    border-radius: 4px;
-    color: white;
-    padding: 4px 12px;
-    font-size: 14px;
-  }
+  max-width: 300px;
+  width: 100%;
 
   &__photo {
+    max-width: 300px;
     width: 100%;
-    height: 200px;
-    overflow: hidden;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,25 +28,24 @@
       transform-origin: 50%;
     }
   }
+  &__icons {
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    overflow: hidden;
+    border-radius: 50%;
+    transition: box-shadow $trans linear;
+  }
 
   &__content {
     position: relative;
     z-index: 2;
     background-color: white;
-    border: 1px solid $border-color;
     padding: 20px;
-    min-height: 222px;
+    max-width: 330px;
   }
 
   &__link {
-    background: #a30041;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    position: absolute;
-    right: 20px;
-    top: -25px;
-    z-index: 111;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,11 +72,8 @@
     #{$self}__title {
       color: $color-main;
     }
-
-    #{$self}__photo {
-      img {
-        transform: scale(1.1) rotate(-5deg);
-      }
+    #{$self}__icons {
+      box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
     }
   }
 }

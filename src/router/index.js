@@ -34,9 +34,51 @@ const routes = [
         component: () => import("../views/site/test"),
       },
       {
-        path: "/IELTS",
-        name: "IELTS",
+        path: "/video-course",
+        name: "video-course",
         component: () => import("../views/site/video-course"),
+      },
+      {
+        path: "/library",
+        name: "library",
+        component: () => import("../views/site/library"),
+      },
+    ],
+  },
+  {
+    path: "/cabinet",
+    component: () => import("../layouts/Cabinet"),
+    children: [
+      {
+        path: "/cabinet",
+        name: "cabinet",
+        component: () =>
+          import("../views/cabinet/my-account/general-information"),
+      },
+      {
+        path: "/my-courses",
+        name: "my-courses",
+        component: () => import("../views/cabinet/my-account/my-courses"),
+      },
+      {
+        path: "/tests-results",
+        name: "tests-results",
+        component: () => import("../views/cabinet/my-account/tests-results"),
+      },
+      {
+        path: "/tests-results-2",
+        name: "tests-results-2",
+        component: () => import("../views/cabinet/my-account/tests-results-2"),
+      },
+      {
+        path: "/payment-history",
+        name: "payment-history",
+        component: () => import("../views/cabinet/my-account/payment-history"),
+      },
+      {
+        path: "/top-up-balance",
+        name: "top-up-balance",
+        component: () => import("../views/cabinet/my-account/top-up-balance"),
       },
     ],
   },

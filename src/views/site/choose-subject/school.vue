@@ -30,7 +30,30 @@
         />
       </BlockWrap>
       <div class="shadowed bordered radius pa-30 w-100">
-        <div class="test__details mb-30"></div>
+        <div class="test__details mb-30">
+          <BlockWrap
+            width-auto
+            class="align-center test__details-item"
+            :count="isMobileSmall ? 2 : 1"
+            offset-x="15"
+            offset-y="15"
+          >
+            <AppText size="16" weight="700"> Sinfni tanlang </AppText>
+            <BaseSelect :options-prop="classes" v-model="selectedClass">
+            </BaseSelect>
+          </BlockWrap>
+          <BlockWrap
+            width-auto
+            class="align-center test__details-item"
+            :count="isMobileSmall ? 2 : 1"
+            offset-x="15"
+            offset-y="15"
+          >
+            <AppText size="16" weight="700"> Umumiy vaqt </AppText>
+            <BaseInput v-model="questionTotalTime" hide-details="" disabled>
+            </BaseInput>
+          </BlockWrap>
+        </div>
         <AppButton
           theme="secondary"
           sides="20"
@@ -49,9 +72,12 @@ import { mapMutations } from "vuex";
 import BlockWrap from "../../../components/shared-components/BlockWrap";
 import AppSmallCard from "../../../components/shared-components/AppSmallCard";
 import AppButton from "../../../components/shared-components/AppButton";
+import BaseSelect from "../../../components/shared-components/BaseSelect";
+import BaseInput from "../../../components/shared-components/BaseInput";
+
 export default {
   name: "choose-test-scool",
-  components: { BlockWrap, AppSmallCard, AppButton },
+  components: { BlockWrap, AppSmallCard, AppButton, BaseSelect, BaseInput },
   data() {
     return {
       subjects: [

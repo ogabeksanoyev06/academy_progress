@@ -6,9 +6,8 @@
         :line-height="isMobile ? 28 : 36"
         weight="700"
       >
-        IELTS kurslar
+        Video darslar
       </app-text>
-
       <div class="section__top-details">
         <router-link class="section__top-link" to="/">Barchasi</router-link>
       </div>
@@ -43,7 +42,7 @@ export default {
       list: [
         {
           id: 0,
-          title: "Starter darslar",
+          title: "SMM kurslar",
           subtitle:
             "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
           photo: "/images/post.png",
@@ -51,7 +50,7 @@ export default {
           price: "99 000 so'm",
         },
         {
-          title: "Beginner darslar",
+          title: "Dizayn kurslar",
           subtitle:
             "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
           photo: "/images/post1.png",
@@ -59,7 +58,7 @@ export default {
           price: "99 000 so'm",
         },
         {
-          title: "Elementary darslar",
+          title: "Dasturlash kurslari",
           subtitle:
             "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
           photo: "/images/post2.png",
@@ -67,7 +66,7 @@ export default {
           price: "99 000 so'm",
         },
         {
-          title: "Pre Intermidate darslar",
+          title: "3d kurslar",
           subtitle:
             "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
           photo: "/images/post3.png",
@@ -75,30 +74,9 @@ export default {
           price: "99 000 so'm",
         },
         {
-          title: "Intermediate darslar",
+          title: "IELTS",
           subtitle: "Mnemonika yordamida so’zlarni tez va oson yodlang.",
           photo: "/images/post4.png",
-          value: "2",
-          price: "99 000 so'm",
-        },
-        {
-          title: "Upper-intermediate darslar",
-          subtitle: "Mnemonika yordamida so’zlarni tez va oson yodlang.",
-          photo: "/images/post5.png",
-          value: "2",
-          price: "99 000 so'm",
-        },
-        {
-          title: "Pre IELTS darslar",
-          subtitle: "Mnemonika yordamida so’zlarni tez va oson yodlang.",
-          photo: "/images/post6.png",
-          value: "2",
-          price: "99 000 so'm",
-        },
-        {
-          title: "IELTS darslar",
-          subtitle: "Mnemonika yordamida so’zlarni tez va oson yodlang.",
-          photo: "/images/post7.png",
           value: "2",
           price: "99 000 so'm",
         },

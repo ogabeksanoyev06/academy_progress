@@ -1,5 +1,5 @@
 <template>
-  <div class="auth__body auth__form mb-30">
+  <div class="auth__body auth__form">
     <AppText
       :size="isDesktopSmall ? 26 : 30"
       :line-height="isDesktopSmall ? 30 : 36"
@@ -75,7 +75,6 @@
       font-size="14"
       theme="secondary"
       radius="10"
-      @click="loginToSystem"
     >
       Kirish
     </AppButton>

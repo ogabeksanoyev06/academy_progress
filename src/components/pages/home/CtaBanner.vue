@@ -43,17 +43,21 @@ export default {
 <style lang="scss" scoped>
 .cta__banner {
   display: flex;
+  align-items: center;
   border-radius: 10px;
   overflow: hidden;
 
   &-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 400px;
     width: 100%;
 
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      width: 180px;
+      height: 300px;
+      object-fit: contain;
     }
   }
 

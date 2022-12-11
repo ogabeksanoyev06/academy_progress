@@ -1,15 +1,12 @@
 @import "../abstracts/variables";
 
 .account__photo {
-  max-width: 100px;
+  max-width: 100%;
   min-height: 100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 20px;
 
   &-wrap {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
 
     input {
       display: none;
@@ -29,7 +26,6 @@
       height: 100%;
       object-fit: cover;
     }
-
   }
 
   .upload-caption {
@@ -38,14 +34,11 @@
     top: 7px;
     right: 0;
     z-index: 2;
-    background: linear-gradient(279.37deg, #008AE4 0%, #A6DCFF 158.68%);
-    width: 24px;
-    height: 24px;
+    background: #f6f6f8;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
+    border-radius: 10px;
   }
 
   .img-preview {
@@ -58,7 +51,6 @@
     align-items: center;
     justify-content: center;
   }
-
 }
 
 .cabinet__content {
@@ -73,7 +65,7 @@
 
 .grid-block {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 0 30px;
 }
 
@@ -81,7 +73,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: 10px;
-  border: 1px solid #E5ECF5;
+  border: 1px solid #e5ecf5;
 
   table {
     width: 100%;
@@ -89,14 +81,14 @@
 
     thead {
       tr {
-        background: #F6F8FC;
+        background: #f6f8fc;
       }
 
       th {
         padding: 10px 20px;
         font-size: 14px;
         line-height: 26px;
-        border-left: 1px solid #E5ECF5;
+        border-left: 1px solid #e5ecf5;
 
         &:first-child {
           border-left: 0;
@@ -107,14 +99,14 @@
     tbody {
       tr {
         &:nth-child(even) {
-          background: #F8F8FA;
+          background: #f8f8fa;
         }
 
         td {
           padding: 10px 20px;
           font-size: 14px;
           line-height: 26px;
-          border: 1px solid #E5ECF5;
+          border: 1px solid #e5ecf5;
           border-bottom: none;
           border-right: 0;
           min-width: 20px;
@@ -130,6 +122,9 @@
 }
 
 @media (max-width: 991px) {
+  .grid-block {
+    grid-template-columns: 1fr 1fr;
+  }
   .table-block {
     width: 100%;
     overflow-x: auto;
@@ -142,15 +137,14 @@
       width: max-content;
 
       &::-webkit-scrollbar {
-        height: 2px!important;
+        height: 2px !important;
         width: 2px;
       }
 
       td {
-        min-width: 100px!important;
+        min-width: 100px !important;
       }
     }
-
   }
 }
 
@@ -162,7 +156,7 @@
   .table-block {
     table {
       td {
-        min-width: unset!important;
+        min-width: unset !important;
       }
     }
   }
