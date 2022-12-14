@@ -10,102 +10,118 @@
       Ro'yxatdan o'tish
     </AppText>
     <br />
-    <div class="form-group">
-      <BaseInput
-        v-model="form.firstName"
-        type="text"
-        vid="name"
-        rules="required|max:255"
-        label="Ism"
-      />
-    </div>
-    <div class="form-group">
-      <BaseInput
-        v-model="form.lastName"
-        type="text"
-        vid="name"
-        rules="required|max:255"
-        label="Familiya"
-      />
-    </div>
-    <div class="form-group">
-      <BaseInput
-        v-model="form.login"
-        type="text"
-        vid="name"
-        v-mask="'998-#########'"
-        rules="required|max:255"
-        label="Telefon raqami"
-        placeholder="998-931234567"
-      />
-    </div>
-    <div class="form-group">
-      <BaseInput
-        v-model="form.password"
-        :type="passwordField ? 'text' : 'password'"
-        vid="name"
-        rules="required|max:255"
-        label="Parol"
-      >
-        <template #append>
-          <img
-            src="/icons/eye.svg"
-            style="padding: 10px 20px; cursor: pointer"
-            alt=""
-            @click="passwordSee"
-            v-if="passwordField"
-          />
-          <img
-            src="/icons/eye-closed2.svg"
-            style="padding: 10px 20px; cursor: pointer"
-            alt=""
-            @click="passwordSee"
-            v-if="!passwordField"
-          />
-        </template>
-      </BaseInput>
-    </div>
-    <div class="form-group">
-      <BaseInput
-        v-model="form.passwordConfirmation"
-        :type="passwordConfirmationField ? 'text' : 'password'"
-        vid="name"
-        rules="required|max:255"
-        label="Parolni takrorlang"
-      >
-        <template #append>
-          <img
-            src="/icons/eye.svg"
-            style="padding: 10px 20px; cursor: pointer"
-            alt=""
-            @click="confirmationSee"
-            v-if="passwordConfirmationField"
-          />
-          <img
-            src="/icons/eye-closed2.svg"
-            style="padding: 10px 20px; cursor: pointer"
-            alt=""
-            @click="confirmationSee"
-            v-if="!passwordConfirmationField"
-          />
-        </template>
-      </BaseInput>
-    </div>
     <BlockWrap
-      :count="isDesktopSmall ? 1 : 2"
-      offset-y="20"
-      offset-x="5"
-      width-auto=""
-      class="mb-30"
+      :count="isMobileSmall ? 1 : isMobileMedium ? 2 : 3"
+      offset-x="12"
+      offset-y="12"
+      class="mb-20"
     >
-      <BaseCheckbox title="Roziman" size="18" />
-      <span class="weight-700" style="color: #008ae4 !important">
-        Qoidalar & Shartlarga
-      </span>
+      <div class="form-group">
+        <BaseInput
+          v-model="form.firstName"
+          type="text"
+          vid="name"
+          rules="required|max:255"
+          label="Ism"
+        />
+      </div>
+      <div class="form-group">
+        <BaseInput
+          v-model="form.lastName"
+          type="text"
+          vid="name"
+          rules="required|max:255"
+          label="Familiya"
+        />
+      </div>
+      <div class="form-group">
+        <BaseInput
+          v-model="form.login"
+          type="text"
+          vid="name"
+          v-mask="'998-#########'"
+          rules="required|max:255"
+          label="Telefon raqami"
+          placeholder="998-931234567"
+        />
+      </div>
+      <div class="form-group">
+        <BaseSelect
+          :options-prop="classes"
+          v-model="regionClass"
+          label="* Viloyat"
+        />
+      </div>
+      <div class="form-group">
+        <BaseSelect
+          :options-prop="classes"
+          v-model="regionClass"
+          label="* Tuman"
+        />
+      </div>
+      <div class="form-group">
+        <BaseSelect
+          :options-prop="classes"
+          v-model="regionClass"
+          label="* Maktab"
+        />
+      </div>
+      <div class="form-group">
+        <BaseInput
+          v-model="form.password"
+          :type="passwordField ? 'text' : 'password'"
+          vid="name"
+          rules="required|max:255"
+          label="Parol"
+        >
+          <template #append>
+            <img
+              src="/icons/eye.svg"
+              style="padding: 10px 20px; cursor: pointer"
+              alt=""
+              @click="passwordSee"
+              v-if="passwordField"
+            />
+            <img
+              src="/icons/eye-closed2.svg"
+              style="padding: 10px 20px; cursor: pointer"
+              alt=""
+              @click="passwordSee"
+              v-if="!passwordField"
+            />
+          </template>
+        </BaseInput>
+      </div>
+      <div class="form-group">
+        <BaseInput
+          v-model="form.passwordConfirmation"
+          :type="passwordConfirmationField ? 'text' : 'password'"
+          vid="name"
+          rules="required|max:255"
+          label="Parolni takrorlang"
+        >
+          <template #append>
+            <img
+              src="/icons/eye.svg"
+              style="padding: 10px 20px; cursor: pointer"
+              alt=""
+              @click="confirmationSee"
+              v-if="passwordConfirmationField"
+            />
+            <img
+              src="/icons/eye-closed2.svg"
+              style="padding: 10px 20px; cursor: pointer"
+              alt=""
+              @click="confirmationSee"
+              v-if="!passwordConfirmationField"
+            />
+          </template>
+        </BaseInput>
+      </div>
     </BlockWrap>
     <AppButton
       sides="20"
-      class="w-100 mb-30"
+      class="mb-30"
       font-size="14"
       theme="secondary"
       radius="10"
@@ -132,10 +148,11 @@
 import AppButton from "../../shared-components/AppButton";
 import BaseInput from "../../shared-components/BaseInput";
 import BlockWrap from "../../shared-components/BlockWrap";
-import BaseCheckbox from "../../shared-components/BaseCheckbox";
+import BaseSelect from "../../../components/shared-components/BaseSelect";
+
 export default {
   name: "AppRegister",
-  components: { AppButton, BaseInput, BaseCheckbox, BlockWrap },
+  components: { AppButton, BaseInput, BlockWrap, BaseSelect },
   data() {
     return {
       form: {
@@ -148,6 +165,8 @@ export default {
       },
       passwordField: false,
       passwordConfirmationField: false,
+      classes: [],
+      regionClass: 5,
     };
   },
   methods: {

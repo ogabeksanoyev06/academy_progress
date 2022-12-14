@@ -6,10 +6,10 @@
         :line-height="isMobile ? 28 : 36"
         weight="700"
       >
-        Kitoblar
+        Kutubxona
       </app-text>
       <div class="section__top-details">
-        <router-link class="section__top-link" to="/">Barchasi</router-link>
+        <!-- <router-link class="section__top-link" to="/">Barchasi</router-link> -->
       </div>
     </div>
     <app-slider :list="list">

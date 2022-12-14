@@ -11,7 +11,6 @@
           IQ TESTLAR
         </app-text>
       </div>
-
       <div class="shadowed bordered radius pa-30 w-100">
         <div
           class="test__details mb-30"

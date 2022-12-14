@@ -9,86 +9,27 @@
             weight="700"
             class="mb-10 color-text"
           >
-            Abiturientlar va o'quvchilar uchun test topshirish tizimi
+            Xalqaro tadqiqotlar
           </app-text>
           <app-text
             :size="isMobileSmall ? 12 : 14"
             :line-height="isMobileSmall ? 16 : 26"
             weight="500"
           >
-            DTM talablari asosida tuzilgan 100 000 ta test savollaridan
-            foydalangan holda test topshirish imkoni
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate
+            pariatur aliquid nisi, fugiat provident atque architecto quidem cum
+            illo recusandae? Numquam eligendi dolorum fuga quo doloremque
+            laborum similique placeat sequi!
           </app-text>
         </div>
       </div>
       <BlockWrap
         :count="isMobileSmall ? 1 : isMobile ? 2 : 3"
-        :offset-y="isMobileSmall ? 15 : 20"
-        :offset-x="isMobileSmall ? 15 : 20"
+        :offset-y="isMobileSmall ? 15 : 30"
+        :offset-x="isMobileSmall ? 15 : 30"
       >
         <div
-          class="block__item bordered"
-          :class="isMobileSmall ? 'pa-15' : 'pa-30'"
-        >
-          <div>
-            <BlockWrap count="2" width-auto class="align-center mb-20">
-              <div class="block__icon">
-                <img src="/svg/block-exams.svg" alt="icon" />
-              </div>
-              <app-text size="18" line-height="24" weight="700">
-                IQ TESTLAR
-              </app-text>
-            </BlockWrap>
-            <AppText size="14" line-height="20" class="color-text mb-20">
-              Bizning IQ testimizga xush kelibsiz. IQ test 10 savoldan iborat.
-              test o'tib so'ng, statistik ma'lumotlarga asoslangan, aholiga
-              nisbatan IQ natija olasiz.
-            </AppText>
-          </div>
-          <AppButton
-            @click="startIQTest"
-            class="mla"
-            theme="secondary"
-            sides="20"
-            :font-size="isMobileSmall ? 14 : 16"
-            :height="isMobileSmall ? 40 : 50"
-          >
-            Testni boshlash
-          </AppButton>
-        </div>
-        <div
-          class="block__item bordered"
-          :class="isMobileSmall ? 'pa-15' : 'pa-30'"
-        >
-          <div>
-            <BlockWrap count="2" width-auto class="align-center mb-20">
-              <div class="block__icon">
-                <img src="/svg/online-exams.svg" alt="icon" />
-              </div>
-              <app-text size="18" line-height="24" weight="700">
-                BLOK TESTLAR
-              </app-text>
-            </BlockWrap>
-            <AppText size="14" line-height="20" class="color-text mb-20">
-              Siz ushbu bo'limda qabul test tizimi talablari asosida onlayn
-              imtihon topshirasiz. Test varianti DTM talablari asosida
-              shakllantirilgan. Savollar 100 000 savol ichidan tanlab beriladi.
-              Testni boshlash uchun boshlash tugmachasini bosing
-            </AppText>
-          </div>
-          <AppButton
-            @click="chooseTestModal = true"
-            class="mla"
-            theme="secondary"
-            sides="20"
-            :font-size="isMobileSmall ? 14 : 16"
-            :height="isMobileSmall ? 40 : 50"
-          >
-            Testni boshlash
-          </AppButton>
-        </div>
-        <div
-          class="block__item bordered"
+          class="block__item internation"
           :class="isMobileSmall ? 'pa-15' : 'pa-30'"
         >
           <div>
@@ -97,7 +38,7 @@
                 <img src="/svg/school-exams.svg" alt="icon" />
               </div>
               <app-text size="18" line-height="24" weight="700">
-                MAKTAB O’QUVCHILARI UCHUN
+                Pisa testlari
               </app-text>
             </BlockWrap>
             <AppText size="14" line-height="20" class="color-text mb-20">
@@ -119,7 +60,7 @@
           </AppButton>
         </div>
         <div
-          class="block__item bordered"
+          class="block__item internation"
           :class="isMobileSmall ? 'pa-15' : 'pa-30'"
         >
           <div>
@@ -128,7 +69,38 @@
                 <img src="/svg/school-exams.svg" alt="icon" />
               </div>
               <app-text size="18" line-height="24" weight="700">
-                Olimpiada testlari
+                Tmess testlari
+              </app-text>
+            </BlockWrap>
+            <AppText size="14" line-height="20" class="color-text mb-20">
+              Ushbu bo'limda maktab o'quvchilari uchun tanlangan fan va undagi
+              mavzular ro'yxatidan bir nechta mavzuni tanlab olish va ular
+              asosida ko'rsatilgan sondagi testlarni yechish imkoniga ega
+              bo'lasiz.
+            </AppText>
+          </div>
+          <AppButton
+            @click="startSchoolTest"
+            class="mla"
+            theme="secondary"
+            sides="20"
+            :font-size="isMobileSmall ? 14 : 16"
+            :height="isMobileSmall ? 40 : 50"
+          >
+            Testni boshlash
+          </AppButton>
+        </div>
+        <div
+          class="block__item internation"
+          :class="isMobileSmall ? 'pa-15' : 'pa-30'"
+        >
+          <div>
+            <BlockWrap count="2" width-auto class="align-center mb-20">
+              <div class="block__icon">
+                <img src="/svg/school-exams.svg" alt="icon" />
+              </div>
+              <app-text size="18" line-height="24" weight="700">
+                Pirls testlari
               </app-text>
             </BlockWrap>
             <AppText size="14" line-height="20" class="color-text mb-20">

@@ -97,8 +97,7 @@
               </AppButton>
             </div>
             <div
-              class="header__language"
-              :class="isMobileMedium ? '' : 'mr-20'"
+              class="header__language mr-20"
               v-if="!isMobileSmall"
               @click="languageDropdown = !languageDropdown"
               v-on-click-outside:excludedClass="hideLanguageDropdown"
@@ -106,7 +105,6 @@
               <div class="header__language-icon">
                 <img src="/icons/globe.svg" alt="" />
               </div>
-
               <transition name="slide">
                 <div class="header__dropdown" v-if="languageDropdown">
                   <ul
@@ -144,7 +142,9 @@
               </div>
               <transition name="slide">
                 <div class="header__dropdown" v-if="accountDropdown">
-                  <ul class="header__dropdown-wrap shadowed radius overflow">
+                  <ul
+                    class="header__dropdown-wrap bordered shadowed radius overflow"
+                  >
                     <li class="header__dropdown-item">
                       <router-link
                         to="/cabinet"
@@ -155,7 +155,6 @@
                         </AppText>
                       </router-link>
                     </li>
-
                     <li class="header__dropdown-item" @click.prevent="logout">
                       <router-link to="/" class="header__dropdown-link pa-10">
                         <AppText size="14" line-height="18" weight="700">
@@ -209,7 +208,7 @@ export default {
         {
           id: 4,
           title: "Xalqaro tadqiqotlar",
-          link: "/a",
+          link: "/choose-internation-test",
           submenu: false,
           children: [],
         },

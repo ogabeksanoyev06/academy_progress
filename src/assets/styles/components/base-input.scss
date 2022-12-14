@@ -1,5 +1,7 @@
 @import "../abstracts/variables";
-
+.form-group {
+  min-height: 105px !important;
+}
 .input__block {
   position: relative;
 

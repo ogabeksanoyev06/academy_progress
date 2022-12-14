@@ -1,5 +1,5 @@
 <template>
-  <div class="greyBg page__wrap" style="height: 100%">
+  <div class="page__wrap" style="height: 100%">
     <div class="container">
       <div class="py-40">
         <div class="test">

@@ -6,7 +6,7 @@
         :line-height="isMobile ? 28 : 36"
         weight="700"
       >
-        Video darslar
+        Xalqaro tadqiqotlar
       </app-text>
       <div class="section__top-details">
         <!-- <router-link class="section__top-link" to="/">Barchasi</router-link> -->
@@ -42,43 +42,25 @@ export default {
       list: [
         {
           id: 0,
-          title: "SMM kurslar",
+          title: "Pisa testlar",
           subtitle:
             "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
           photo: "/images/post.png",
           value: "2",
-          price: "99 000 so'm",
         },
         {
-          title: "Dizayn kurslar",
+          title: "Tmess",
           subtitle:
             "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
           photo: "/images/post1.png",
           value: "2",
-          price: "99 000 so'm",
         },
         {
-          title: "Dasturlash kurslari",
+          title: "Pirls",
           subtitle:
             "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
           photo: "/images/post2.png",
           value: "2",
-          price: "99 000 so'm",
-        },
-        {
-          title: "3d kurslar",
-          subtitle:
-            "Qiziqarli ertaklar yordamida ingliz tili bilimingizni oshiring.Biz bilan barchasi tez va oson!",
-          photo: "/images/post3.png",
-          value: "2",
-          price: "99 000 so'm",
-        },
-        {
-          title: "IELTS",
-          subtitle: "Mnemonika yordamida so’zlarni tez va oson yodlang.",
-          photo: "/images/post4.png",
-          value: "2",
-          price: "99 000 so'm",
         },
       ],
     };

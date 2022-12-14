@@ -6,10 +6,10 @@
         :line-height="isMobile ? 28 : 36"
         weight="700"
       >
-        Testlar va Kutubxona
+        Testlar
       </app-text>
       <div class="section__top-details">
-        <router-link class="section__top-link" to="/">Barchasi</router-link>
+        <!-- <router-link class="section__top-link" to="/">Barchasi</router-link> -->
       </div>
     </div>
     <app-slider :list="list">
@@ -59,13 +59,6 @@ export default {
           photo: "/images/post10.png",
           value: "2",
           link: "choose-IQ-test",
-        },
-        {
-          title: "Kutubxona",
-          subtitle:
-            "Siz uchun qiziqarli bo’lgan yo’nalishga oid kitoblar va audio hikoyalarni bizdan topishingiz mumkin!",
-          photo: "/images/post11.png",
-          value: "2",
         },
       ],
     };

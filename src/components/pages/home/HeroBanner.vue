@@ -1,6 +1,9 @@
 <template>
   <kinesis-container>
-    <div class="hero-banner">
+    <div
+      class="hero-banner"
+      style="background-image: url('/images/register.jpg')"
+    >
       <div class="container">
         <div class="hero-banner__inner">
           <div class="hero-banner__content">
@@ -66,6 +69,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/styles/abstracts/variables";
+
 .vue-typer .custom.caret {
   display: none;
 }
@@ -73,17 +77,10 @@ export default {
   color: $color-main;
 }
 .hero-banner {
-  background-color: #f5f5f7;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  &__ParticlesJs {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-    overflow-y: hidden;
-  }
+  background-size: cover;
   &__inner {
     display: flex;
     align-items: center;

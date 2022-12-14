@@ -5,11 +5,10 @@
         <div class="splide__track">
           <div class="splide__list">
             <div v-for="(item, idx) in list" :key="idx" class="splide__slide">
-              <slot :item="item" :medium="medium"> </slot>
+              <slot :item="item" :medium="medium"></slot>
             </div>
           </div>
         </div>
-
         <app-button
           v-if="showPreviousArrow"
           key="1"

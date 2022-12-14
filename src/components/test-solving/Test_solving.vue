@@ -1,22 +1,22 @@
 <template>
   <div class="test__body" id="test_solving_component">
     <TestPagination class="mb-40" :questions-prop="questions.questions" />
-    <AppText
+    <app-text
       :size="isMobileSmall ? 14 : 18"
       :line-height="isMobileSmall ? 20 : 26"
       weight="700"
-      class="color-text mb-30"
+      class="color-text mb-"
     >
-      <!--      Savol {{ selectedQuestion.number }} / {{ questions.questions.length }}-->
-    </AppText>
+      <!--Savol {{ selectedQuestion.number }} / {{ questions.questions.length }}-->
+    </app-text>
     <div class="test__questions mb-30">
-      <AppText
+      <app-text
         :size="isMobileSmall ? 16 : 20"
         :line-height="isMobileSmall ? 24 : 28"
         class="mb-20"
       >
         <span v-html="reserved" id="test_question"></span>
-      </AppText>
+      </app-text>
 
       <div class="test__photo" v-if="selectedQuestion.questionImage">
         <img
