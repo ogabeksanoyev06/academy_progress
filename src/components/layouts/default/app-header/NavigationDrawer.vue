@@ -1,193 +1,44 @@
 <template>
   <div class="navigation-drawer">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus
-    maxime soluta, saepe, maiores et non laborum dolorum consequatur ut,
-    temporibus ad dolorem. Eveniet eos consectetur, dolore facilis perferendis
-    dicta molestiae!
+    <div class="header__auth mb-20 mr-20">
+      <AppButton
+        theme="secondary"
+        :font-size="isMobileSmall ? 12 : isMobile ? 14 : 16"
+        sides="20"
+        height="40"
+        class="header__login mr-5"
+        v-if="!isDesktop"
+        @click="$router.push({ path: '/sign-in' })"
+      >
+        Kirish
+      </AppButton>
+      <AppButton
+        theme="white"
+        :font-size="isMobileSmall ? 12 : isMobile ? 14 : 16"
+        sides="20"
+        height="40"
+        class="header__register"
+        v-if="!isDesktop"
+        @click="$router.push({ path: '/sign-up' })"
+        >Ro'yxatdan o'tish
+      </AppButton>
+    </div>
   </div>
 </template>
 <script>
+import AppButton from "../../../shared-components/AppButton";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "NavigationDrawer",
-  components: {},
+  components: { AppButton },
   data() {
-    return {
-      activeId: null,
-      subActiveId: null,
-      menu: [
-        {
-          id: 1,
-          title: "Yo'nalishlar",
-          link: "/",
-          submenu: false,
-          children: [
-            {
-              id: 20,
-              title: "Web development",
-              link: "#",
-              children: [
-                {
-                  id: 7,
-                  title: "Vue JS 3",
-                  link: "#",
-                  classMenu: false,
-                },
-                {
-                  id: 8,
-                  title: "React",
-                  link: "#",
-                  classMenu: false,
-                },
-              ],
-            },
-            {
-              id: 21,
-              title: "Economy",
-              link: "#",
-              children: [
-                {
-                  id: 9,
-                  title: "International Financial Reporting Standards",
-                  link: "#",
-                },
-              ],
-            },
-            {
-              id: 22,
-              title: "Natural sciences",
-              link: "#",
-              children: [
-                {
-                  id: 10,
-                  title: "General, inorganic chemistry",
-                  link: "#",
-                },
-              ],
-            },
-            {
-              id: 23,
-              title: "Computer graphics and design",
-              link: "#",
-              children: [
-                {
-                  id: 11,
-                  title: "3d Max",
-                  link: "#",
-                },
-              ],
-            },
-            {
-              id: 24,
-              title: "Exact Sciences",
-              link: "#",
-              children: [
-                {
-                  id: 12,
-                  title: "Math",
-                  link: "#",
-                },
-                {
-                  id: 13,
-                  title: "Physics",
-                  link: "#",
-                },
-              ],
-            },
-            {
-              id: 25,
-              title: "Foreign languages",
-              link: "#",
-              children: [
-                {
-                  id: 14,
-                  title: "General English",
-                  link: "#",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          id: 2,
-          title: "Fanlar",
-          link: "/subjects",
-          submenu: false,
-          children: [
-            {
-              id: 20,
-              title: "Web development",
-              link: "#",
-              children: [
-                {
-                  id: 7,
-                  title: "Vue JS 3",
-                  link: "#",
-                  classMenu: false,
-                },
-                {
-                  id: 8,
-                  title: "React",
-                  link: "#",
-                  classMenu: false,
-                },
-              ],
-            },
-          ],
-        },
-        /*          {
-                    id: 3,
-                    title: "Miramanda o'qitish",
-                    link: "111",
-                    submenu: false,
-                    children: []
-                  },*/
-        {
-          id: 3,
-          title: "Konkurs natijalari",
-          link: "/top-50",
-          submenu: false,
-          children: [],
-        },
-        {
-          id: 4,
-          title: "Testlar",
-          link: "/choose-test",
-          submenu: false,
-          children: [],
-        },
-      ],
-      search: "",
-    };
+    return {};
   },
   computed: {
-    ...mapGetters([""]),
+    ...mapGetters([]),
   },
   methods: {
-    ...mapActions([""]),
-    clickMenu() {
-      this.$emit("closeNavigationDrawer");
-    },
-    handleShowDropdown(item) {
-      console.log("sds");
-      if (item.children.length) {
-        return {
-          click: () => (this.activeId = item.id),
-        };
-      } else {
-        return {
-          click: () => this.$router.push(item.link),
-        };
-      }
-    },
-    handleShowDropdownInner(id) {
-      return {
-        click: () => (this.subActiveId = this.subActiveId === id ? null : id),
-      };
-    },
-    hideMenus() {
-      this.activeId = false;
-    },
+    ...mapActions([]),
   },
 };
 </script>
@@ -203,23 +54,15 @@ export default {
   background: #fff;
   z-index: 99999;
   overflow-y: auto;
-  padding: 30px;
+  padding: 30px 10px;
   &__close {
     background-color: #00d06c;
   }
-
-  .header__search {
-    margin-right: 0;
-
-    .input__holder {
-      max-width: 100%;
-    }
-  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .navigation-drawer {
-    max-width: 75% !important;
+    max-width: 85%;
   }
 }
 </style>

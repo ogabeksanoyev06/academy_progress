@@ -141,7 +141,7 @@
                 <img :src="baseURL + user.photo" alt="" />
               </div> -->
                 <div class="header__account-photo">
-                  <img src="/images/user-photo.jpg" alt="" />
+                  <img src="/images/accaunt1.png" alt="" />
                 </div>
                 <transition name="slide">
                   <div class="header__dropdown" v-if="accountDropdown">
@@ -284,6 +284,9 @@ export default {
     ...mapGetters([""]),
   },
   methods: {
+    closeDrawer() {
+      this.navigationDrawer = false;
+    },
     showNavigationDrawer() {
       this.navigationDrawer = !this.navigationDrawer;
     },
