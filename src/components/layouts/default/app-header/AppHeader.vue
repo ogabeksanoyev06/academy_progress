@@ -15,7 +15,8 @@
           <div class="header__inner">
             <div class="header__left">
               <router-link to="/" class="logo">
-                <img src="/svg/logo1.svg" alt="logo" />
+                <img src="/svg/logo1.svg" alt="logo" v-if="!isMobileSmall" />
+                <img src="/svg/logomobile.svg" v-if="isMobileSmall" alt="logo" />
               </router-link>
 
               <ul class="header__menu" v-if="!isDesktopMedium">

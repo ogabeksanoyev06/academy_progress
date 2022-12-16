@@ -55,9 +55,6 @@ export default {
   z-index: 99999;
   overflow-y: auto;
   padding: 30px 10px;
-  &__close {
-    background-color: #00d06c;
-  }
 }
 
 @media (max-width: 500px) {
