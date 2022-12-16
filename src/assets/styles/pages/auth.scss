@@ -85,7 +85,8 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    //justify-content: center;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     padding: 60px 30px;
   }
@@ -109,7 +110,7 @@
   }
 
   &__footer {
-    margin-top: auto;
+    margin-top: 30px;
   }
 
   .auth_logo {
@@ -155,9 +156,10 @@
 .auth__lang-buttons {
   max-width: max-content;
   width: 100%;
-  background-color: rgba(137, 141, 166, 0.2);
+  background-color: #f6f6f8;
   border-radius: 8px;
   height: 40px;
+  padding: 2px;
 }
 .switch-text {
   display: flex;
@@ -176,7 +178,7 @@
   padding: 0 13px;
   white-space: nowrap;
   text-align: center;
-  color: #898da6;
+  color: #a30041;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;

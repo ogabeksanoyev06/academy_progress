@@ -28,13 +28,10 @@
             <app-text
               size="18"
               line-height="24"
-              max-lines="2"
               weight="700"
-              text-align="center"
               class="color-text mb-40 text-center"
             >
-              Kasbiy maqsadlaringizga erishish uchun eng so'nggi ko'nikmalarni
-              o'rganing.
+              Maqsadingiz sari eng songgi konikmalarni biz bilan organing!
             </app-text>
           </div>
           <div class="hero-banner__photo">

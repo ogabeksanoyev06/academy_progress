@@ -4,11 +4,12 @@
       :size="isDesktopSmall ? 26 : 30"
       :line-height="isDesktopSmall ? 30 : 36"
       weight="700"
-      class=""
+      class="color-main"
       :class="isDesktopSmall ? 'text-center' : ''"
     >
       Ro'yxatdan o'tish
     </AppText>
+
     <br />
     <BlockWrap
       :count="isMobileSmall ? 1 : isMobileMedium ? 2 : 3"
@@ -39,7 +40,7 @@
           v-model="form.login"
           type="text"
           vid="name"
-          v-mask="'998-#########'"
+          v-mask="'998-## ### ## ##'"
           rules="required|max:255"
           label="Telefon raqami"
           placeholder="998-931234567"

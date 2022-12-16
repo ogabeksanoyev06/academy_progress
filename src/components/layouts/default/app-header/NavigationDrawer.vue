@@ -1,10 +1,13 @@
 <template>
-  <div class="navigation-drawer"></div>
+  <div class="navigation-drawer">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus
+    maxime soluta, saepe, maiores et non laborum dolorum consequatur ut,
+    temporibus ad dolorem. Eveniet eos consectetur, dolore facilis perferendis
+    dicta molestiae!
+  </div>
 </template>
-
 <script>
 import { mapActions, mapGetters } from "vuex";
-
 export default {
   name: "NavigationDrawer",
   components: {},
@@ -192,16 +195,15 @@ export default {
 <style lang="scss" scoped>
 .navigation-drawer {
   position: fixed;
-  top: 0;
+  top: 0px;
   left: 0;
-  max-width: 600px;
+  max-width: 400px;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(279.37deg, #008ae4 0%, #a6dcff 158.68%);
-  z-index: 50;
+  background: #fff;
+  z-index: 99999;
   overflow-y: auto;
   padding: 30px;
-
   &__close {
     background-color: #00d06c;
   }

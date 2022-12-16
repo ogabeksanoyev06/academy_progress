@@ -4,7 +4,7 @@
       :size="isDesktopSmall ? 26 : 30"
       :line-height="isDesktopSmall ? 30 : 36"
       weight="700"
-      class="mb-30"
+      class="mb-30 color-main"
       :class="isDesktopSmall ? 'text-center' : ''"
     >
       Tizimga kirish <span>{{ errorMes }}</span>
@@ -129,4 +129,11 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style lang="scss" scoped>
+.auth {
+  &__body {
+    max-width: 800px;
+    width: 100%;
+  }
+}
+</style>
