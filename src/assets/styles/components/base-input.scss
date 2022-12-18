@@ -19,7 +19,6 @@
     &.error {
       .input__block-wrap {
         border-color: red;
-
         .input__block-error {
           display: block;
         }
@@ -30,7 +29,6 @@
   &-title {
     display: inline-flex;
     font-size: 14px;
-
     margin-bottom: 10px;
   }
 
@@ -41,6 +39,7 @@
     border: 0px solid $border-color;
     border-radius: 10px;
     background: #f6f6f8;
+    padding: 0 10px;
 
     &.error {
       border: 1px solid red;
@@ -55,9 +54,8 @@
     display: flex;
     align-items: center;
 
-    svg {
-      margin: 1rem;
-      width: 2rem;
+    img {
+      padding: 0.5rem;
     }
   }
 
@@ -68,13 +66,10 @@
 
     & + .input__block-input {
     }
-
-    svg {
-      margin: 1rem;
-      width: 2rem;
+    img {
+      padding: 1rem;
     }
   }
-
   &-input {
     border-radius: 10px;
     flex: 1 1 auto;
@@ -82,12 +77,12 @@
     border: none;
     order: 2;
     height: 40px;
-    font-size: 18px;
-    padding: 10px 15px;
+    font-size: 16px;
+    padding: 10px 10px;
     background: #f6f6f8;
     outline: none !important;
+    font-family: inherit;
   }
-
   &-error {
   }
 }

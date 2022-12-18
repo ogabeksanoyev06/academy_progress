@@ -35,7 +35,7 @@
             class="input__block-input"
           />
         </div>
-        <div class="input__details" v-if="!hideDetails">
+        <div class="input__details" v-if="errors[0]">
           <span v-if="errors[0]" id="error"> {{ label }} </span>
         </div>
       </label>
