@@ -55,15 +55,35 @@
           {{ item.title }}
         </span>
         <transition name="slide">
-          <ul class="mobile-submenu" v-if="item.id === activeId">
+          <ul class="mobile-submenu" v-if="activeId === item.id">
             <li
               v-for="(submenu, index) in item.children"
               :key="index"
               class="mobile-submenu__item"
+              @click="handleShowDropdownInner(submenu.id)"
             >
-              <router-link :to="submenu.link" class="mobile-submenu__link">
+              <span class="mobile-submenu__link">
                 {{ submenu.title }}
-              </router-link>
+              </span>
+              <transition name="slide">
+                <ul
+                  class="mobile-submenu__inner"
+                  v-if="submenu.id === subActiveId"
+                >
+                  <li
+                    class="mobile-submenu__item"
+                    v-for="(children, idx) in submenu.children"
+                    :key="idx"
+                  >
+                    <router-link
+                      :to="children.link"
+                      class="mobile-submenu__link"
+                    >
+                      {{ children.title }}
+                    </router-link>
+                  </li>
+                </ul>
+              </transition>
             </li>
           </ul>
         </transition>
@@ -98,69 +118,166 @@ export default {
           submenu: false,
           children: [
             {
-              id: 0,
-              title: "IQ testlar",
+              id: 20,
+              title: "IQ test",
               link: "#",
+              children: [],
             },
             {
-              id: 1,
-              title: "Blok testlar",
+              id: 21,
+              title: "Abituriyentlar uchun test",
               link: "#",
+              children: [],
             },
             {
-              id: 2,
-              title: "Maktab o'quvchilari uchun",
+              id: 22,
+              title: "Maktab o'quvchilari uchun test",
               link: "#",
+              children: [],
             },
-
             {
-              id: 3,
-              title: "Olimpiada testlari",
+              id: 23,
+              title: "Olimpiada test",
               link: "#",
+              children: [
+                // {
+                //   id: 12,
+                //   title: "Math",
+                //   link: "#",
+                // },
+              ],
             },
           ],
         },
-
         {
           id: 3,
-          title: "Video kusrlar",
-          link: "/video-course",
+          title: "Video kurslar",
           submenu: false,
           children: [
             {
-              id: 0,
-              title: "IQ testlar",
+              id: 20,
+              title: "Web development",
               link: "#",
+              children: [
+                {
+                  id: 7,
+                  title: "JavaScript",
+                  link: "#",
+                  classMenu: false,
+                },
+                {
+                  id: 8,
+                  title: "Pyhton",
+                  link: "#",
+                  classMenu: false,
+                },
+                {
+                  id: 9,
+                  title: "Java",
+                  link: "#",
+                  classMenu: false,
+                },
+                {
+                  id: 9,
+                  title: "C#",
+                  link: "#",
+                  classMenu: false,
+                },
+                {
+                  id: 10,
+                  title: "Vue Js",
+                  link: "#",
+                  classMenu: false,
+                },
+                {
+                  id: 11,
+                  title: "React Js",
+                  link: "#",
+                  classMenu: false,
+                },
+              ],
             },
             {
-              id: 1,
-              title: "Blok testlar",
+              id: 21,
+              title: "Xorijiy tillar",
               link: "#",
+              children: [
+                {
+                  id: 9,
+                  title: "Ingliz tili",
+                  link: "#",
+                },
+                {
+                  id: 9,
+                  title: "Rus tili",
+                  link: "#",
+                },
+                {
+                  id: 9,
+                  title: "Nemis tili",
+                  link: "#",
+                },
+                {
+                  id: 9,
+                  title: "Koreys tili",
+                  link: "#",
+                },
+              ],
             },
             {
-              id: 2,
-              title: "Maktab o'quvchilari uchun",
+              id: 22,
+              title: "Dizayn",
               link: "#",
-            },
-
-            {
-              id: 3,
-              title: "Olimpiada testlari",
-              link: "#",
+              children: [
+                {
+                  id: 10,
+                  title: "Grafik dizayn",
+                  link: "#",
+                },
+                {
+                  id: 10,
+                  title: "Web dizayn",
+                  link: "#",
+                },
+                {
+                  id: 10,
+                  title: "3d Max",
+                  link: "#",
+                },
+              ],
             },
           ],
         },
         {
           id: 4,
           title: "Xalqaro tadqiqotlar",
-          link: "/choose-internation-test",
+          link: "/",
           submenu: false,
-          children: [],
+          children: [
+            {
+              id: 20,
+              title: "Pisa test",
+              link: "#",
+              children: [],
+            },
+            {
+              id: 21,
+              title: "Tmess test",
+              link: "#",
+              children: [],
+            },
+            {
+              id: 22,
+              title: "Pirls test",
+              link: "#",
+              children: [],
+            },
+          ],
         },
         {
           id: 5,
           title: "Kutubxona",
-          link: "/library",
+          link: "/",
           submenu: false,
           children: [],
         },
@@ -172,44 +289,29 @@ export default {
   },
   methods: {
     ...mapActions([]),
-    handleShowDropdown(item) {
-      if (item.children.length) {
-        this.activeId = item.id;
-      } else {
-        return {
-          click: () => this.$router.push(item.link),
-        };
-      }
-    },
-
-    hideMenus() {
-      this.activeId = false;
-    },
     clickMenu() {
       this.$emit("closeNavigationDrawer");
     },
-    prepareSkillCourseTree(data, menu) {
-      data.forEach((d) => {
-        let parentMenuModel = {
-          id: d.id,
-          title: d.name,
-          link: "",
-          children: [],
-        };
-        let childrenMenus = [];
-        if (d.courseList) {
-          d.courseList.forEach((children) => {
-            let childrenMenuModel = {
-              id: children.id,
-              title: children.name,
-              link: "",
-            };
-            childrenMenus.push(childrenMenuModel);
-          });
-          parentMenuModel.children = childrenMenus;
-        }
-        menu.push(parentMenuModel);
-      });
+    handleShowDropdown(item) {
+      console.log("sds");
+      if (item.children.length) {
+        this.activeId = item.id;
+      } else {
+        this.$router.push(item.link);
+      }
+    },
+    handleShowDropdownInner(id) {
+      this.subActiveId = this.subActiveId === id ? null : id;
+    },
+    hideMenus() {
+      this.activeId = false;
+    },
+
+    start(el) {
+      el.style.height = el.scrollHeight + "px";
+    },
+    end(el) {
+      el.style.height = "";
     },
   },
 };
@@ -217,6 +319,18 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/styles/abstracts/variables";
+.accordion-enter-active,
+.accordion-leave-active {
+  will-change: height, opacity;
+  transition: height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+.accordion-enter,
+.accordion-leave-to {
+  height: 0 !important;
+  opacity: 0;
+}
 .navigation-drawer::-webkit-scrollbar {
   width: 0px;
   height: 8px;
@@ -260,15 +374,11 @@ export default {
 }
 .mobile-menu {
   &__item {
-    background-color: rgba(163, 0, 65, 0.05);
     margin-bottom: 10px;
     border-radius: 10px;
+    overflow: hidden;
 
     .mobile-submenu__item {
-      background-color: #fafafa;
-      padding-left: 15px;
-      border-bottom: 1px solid $border-color;
-
       &:last-child {
         border-bottom: none;
       }
@@ -293,7 +403,6 @@ export default {
 .mobile-submenu {
   &__item {
   }
-
   &__link {
     font-size: 14px;
     font-weight: 700;
