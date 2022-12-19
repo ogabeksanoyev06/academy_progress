@@ -16,7 +16,11 @@
             <div class="header__left">
               <router-link to="/" class="logo">
                 <img src="/svg/logo1.svg" alt="logo" v-if="!isMobileSmall" />
-                <img src="/svg/logomobile.svg" v-if="isMobileSmall" alt="logo" />
+                <img
+                  src="/svg/logomobile.svg"
+                  v-if="isMobileSmall"
+                  alt="logo"
+                />
               </router-link>
 
               <ul class="header__menu" v-if="!isDesktopMedium">
@@ -26,7 +30,7 @@
                   :key="index"
                 >
                   <router-link :to="item.link" class="header__menu-link">
-                    {{ item.title }}
+                    {{ $t(item.title) }}
                   </router-link>
 
                   <transition name="slide">
@@ -86,7 +90,7 @@
                   v-if="!isMobileSmall"
                   @click="$router.push({ path: '/sign-in' })"
                 >
-                  Kirish
+                  {{ $t("Login") }}
                 </AppButton>
                 <AppButton
                   theme="secondary"
@@ -96,7 +100,8 @@
                   class="header__register"
                   :class="isMobileMedium ? 'mr-10' : 'mr-20'"
                   v-if="!isMobileSmall"
-                  >Ro'yxatdan o'tish
+                >
+                  {{ $t("Register") }}
                 </AppButton>
               </div>
               <div
@@ -113,20 +118,26 @@
                     <ul
                       class="header__dropdown-wrap bordered shadowed radius overflow"
                     >
-                      <li class="header__dropdown-item">
-                        <router-link to="/" class="header__dropdown-link pa-10">
+                      <li
+                        class="header__dropdown-item"
+                        @click="changeLanguage('uz')"
+                      >
+                        <a class="header__dropdown-link pa-10">
                           <AppText size="14" line-height="18" weight="700">
                             Uzbek
                           </AppText>
-                        </router-link>
+                        </a>
                       </li>
 
-                      <li class="header__dropdown-item">
-                        <router-link to="/" class="header__dropdown-link pa-10">
+                      <li
+                        class="header__dropdown-item"
+                        @click="changeLanguage('ru')"
+                      >
+                        <a class="header__dropdown-link pa-10">
                           <AppText size="14" line-height="18" weight="700">
                             Russian
                           </AppText>
-                        </router-link>
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -221,7 +232,7 @@ import { headroom } from "vue-headroom";
 import NavigationDrawer from "./NavigationDrawer";
 import "./header.scss";
 import { mapGetters } from "vuex";
-
+import i18n from "@/locales/i18n";
 export default {
   name: "AppHeader",
   components: { AppButton, headroom, NavigationDrawer },
@@ -297,6 +308,16 @@ export default {
     hideLanguageDropdown() {
       this.languageDropdown = false;
     },
+    changeLanguage(lang) {
+      localStorage.setItem("lang", lang);
+      i18n.locale = lang;
+    },
+  },
+  created() {
+    if (!localStorage.getItem("lang")) {
+      localStorage.setItem("lang", "uz");
+    }
+    i18n.locale = localStorage.getItem("lang");
   },
 };
 </script>

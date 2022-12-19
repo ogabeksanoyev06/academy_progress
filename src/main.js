@@ -9,6 +9,7 @@ import "./assets/styles/main.scss";
 import "./plugins/media/media-mixin";
 import "./plugins/directives/click-outside";
 import "./plugins/mixins/mixin";
+import i18n from "./locales/i18n";
 import VueMask from "v-mask";
 import Moment from "vue-moment";
 import * as veeValidate from "./plugins/vee-validate/vee-validate";
@@ -34,5 +35,6 @@ new Vue({
   router,
   store,
   veeValidate,
+  i18n,
   render: (h) => h(App),
 }).$mount("#app");
