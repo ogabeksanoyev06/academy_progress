@@ -374,21 +374,24 @@ export default {
 }
 .mobile-menu {
   &__item {
-    margin-bottom: 10px;
+    background-color: #f6f6f8;
     border-radius: 10px;
+    color: #37363c;
+    cursor: pointer;
     overflow: hidden;
-
+    margin-bottom: 10px;
+    &:hover {
+    }
     .mobile-submenu__item {
       &:last-child {
         border-bottom: none;
       }
     }
   }
-
   &__link {
-    font-size: 16px;
+    font-size: 1.4rem/1.2857;
     font-family: "Gilroy", sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     display: flex;
     width: 100%;
     padding: 10px;
@@ -404,8 +407,8 @@ export default {
   &__item {
   }
   &__link {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 1.6rem/1.1875;
+    font-weight: 500;
     display: flex;
     width: 100%;
     padding: 10px 20px;
