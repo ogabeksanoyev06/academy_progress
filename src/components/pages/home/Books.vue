@@ -5,6 +5,7 @@
         :size="isMobile ? 24 : 30"
         :line-height="isMobile ? 28 : 36"
         weight="700"
+        class="color-secondary"
       >
         Kutubxona
       </app-text>

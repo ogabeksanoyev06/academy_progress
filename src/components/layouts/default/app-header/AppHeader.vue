@@ -85,9 +85,10 @@
                 <AppButton
                   theme="main"
                   :font-size="isMobileSmall ? 12 : isMobile ? 14 : 16"
-                  :sides="isMobileSmall ? 10 : isMobile ? 20 : 30"
+                  :sides="isMobileSmall ? 10 : 20"
                   class="header__login mr-10"
-                  v-if="!isMobileSmall"
+                  height="50"
+                  v-if="!isDesktopMedium"
                   @click="$router.push({ path: '/sign-in' })"
                 >
                   {{ $t("Login") }}
@@ -96,17 +97,18 @@
                   theme="secondary"
                   @click="$router.push({ path: '/sign-up' })"
                   :font-size="isMobileSmall ? 12 : isMobile ? 14 : 16"
-                  :sides="isMobileSmall ? 10 : isMobile ? 20 : 30"
+                  :sides="isMobileSmall ? 10 : 20"
                   class="header__register"
+                  height="50"
                   :class="isMobileMedium ? 'mr-10' : 'mr-20'"
-                  v-if="!isMobileSmall"
+                  v-if="!isDesktopMedium"
                 >
                   {{ $t("Register") }}
                 </AppButton>
               </div>
               <div
                 class="header__language mr-20"
-                v-if="!isMobileSmall"
+                v-if="!isDesktopMedium"
                 @click="languageDropdown = !languageDropdown"
                 v-on-click-outside:excludedClass="hideLanguageDropdown"
               >
@@ -187,30 +189,16 @@
                 :class="{ active: navigationDrawer }"
                 v-if="isDesktopMedium"
               >
-                <svg
-                  width="100"
-                  height="100"
-                  viewBox="0 0 100 100"
-                  class="svg-icon"
-                  style="width: 24px; height: 24px"
-                >
-                  <path
-                    d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058"
-                    class="line line1"
-                  ></path>
-                  <path d="M 20,50 H 80" class="line line2"></path>
-                  <path
-                    d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"
-                    class="line line3"
-                  ></path>
-                </svg>
+                <button type="button" class="">
+                  <img src="/icons/menu.svg" style="max-width: 20px" />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </header>
     </headroom>
-    <transition name="slide-right">
+    <transition name="navigation">
       <NavigationDrawer
         v-if="navigationDrawer"
         @closeNavigationDrawer="closeDrawer"
@@ -327,11 +315,20 @@ export default {
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
 }
 
+.navigation-enter-active,
+.navigation-leave-active {
+  will-change: transform;
+  transition: transform 0.25s ease;
+}
+
+.navigation-enter,
+.navigation-leave-to {
+  transform: translateX(-100%) !important;
+}
 .overlay {
   position: fixed;
   top: 0;

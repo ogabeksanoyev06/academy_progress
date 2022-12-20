@@ -1,14 +1,11 @@
 <template>
   <kinesis-container>
-    <div
-      class="hero-banner"
-      style="background-image: url('/images/register.jpg')"
-    >
+    <div class="hero-banner" style="background-color: #f5f9fd">
       <div class="container">
         <div class="hero-banner__inner">
           <div class="hero-banner__content">
             <h1 class="hero-banner__title text-center mb-20">
-              <span class="color-main">
+              <span class="color-secondary">
                 <vue-typer
                   :text="['PROGRESS']"
                   :repeat="Infinity"

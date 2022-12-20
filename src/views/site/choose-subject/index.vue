@@ -6,7 +6,7 @@
           :size="isMobileSmall ? 22 : isMobile ? 26 : 30"
           :line-height="isMobileSmall ? 26 : isMobile ? 30 : 36"
           weight="700"
-          class="mb-10"
+          class="mb-10 color-secondary"
         >
           IQ TESTLAR
         </app-text>

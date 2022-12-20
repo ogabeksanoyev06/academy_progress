@@ -6,7 +6,7 @@
           :size="isMobile ? 24 : 30"
           :line-height="isMobile ? 28 : 36"
           weight="700"
-          class="mb-20 color-main"
+          class="mb-20 color-secondary"
         >
           Badiiy kitoblar
         </app-text>
@@ -35,7 +35,7 @@
           :size="isMobile ? 24 : 30"
           :line-height="isMobile ? 28 : 36"
           weight="700"
-          class="mb-20 color-main"
+          class="mb-20 color-secondary"
         >
           Darsliklar va foydali materiallar
         </app-text>
@@ -64,7 +64,7 @@
           :size="isMobile ? 24 : 30"
           :line-height="isMobile ? 28 : 36"
           weight="700"
-          class="mb-20 color-main"
+          class="mb-20 color-secondary"
         >
           Audio kitoblar
         </app-text>
@@ -96,7 +96,7 @@
 <script>
 import AppCardBook from "@/components/shared-components/AppCardBook.vue";
 import BlockWrap from "../../../components/shared-components/BlockWrap";
-import AppCardAudio from '@/components/shared-components/AppCardAudio.vue';
+import AppCardAudio from "@/components/shared-components/AppCardAudio.vue";
 export default {
   name: "AppLibrary",
   components: { BlockWrap, AppCardBook, AppCardAudio },

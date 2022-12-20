@@ -11,7 +11,7 @@
         :size="isMobile ? 22 : 30"
         :line-height="isMobile ? 25 : 36"
         weight="600"
-        class="mb-15"
+        class="mb-15 color-secondary"
       >
         {{ title }}
       </app-text>
@@ -46,6 +46,7 @@ export default {
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
+  background-color: #f5f9fd;
 
   &-photo {
     display: flex;

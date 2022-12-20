@@ -17,8 +17,10 @@
     <div class="mobile-menu__language mb-15 border__bottom">
       <div class="icon-lang mr-15"><img src="/icons/globe.svg" alt="" /></div>
       <ul>
-        <li class="active"><router-link to="/">O‘zbek</router-link></li>
-        <li><router-link to="/">Русский</router-link></li>
+        <li class="active" @click="changeLanguage('uz')">
+          <a>O‘zbek</a>
+        </li>
+        <li @click="changeLanguage('ru')"><a>Русский</a></li>
       </ul>
     </div>
     <div class="header__auth mb-20 border__bottom">
@@ -28,7 +30,7 @@
         sides="20"
         height="40"
         class="header__login mr-5"
-        v-if="!isDesktop"
+        v-if="isDesktopMedium"
         @click="$router.push({ path: '/sign-in' })"
       >
         Kirish
@@ -39,9 +41,10 @@
         sides="20"
         height="40"
         class="header__register"
-        v-if="!isDesktop"
+        v-if="isDesktopMedium"
         @click="$router.push({ path: '/sign-up' })"
-        >Ro'yxatdan o'tish
+      >
+        Ro'yxatdan o'tish
       </AppButton>
     </div>
     <ul class="mobile-menu-wrap" v-on-click-outside:excludedClass="hideMenus">
@@ -52,7 +55,7 @@
         @click="handleShowDropdown(item)"
       >
         <span class="mobile-menu__link">
-          {{ item.title }}
+          {{ $t(item.title) }}
         </span>
         <transition name="slide">
           <ul class="mobile-submenu" v-if="activeId === item.id">
@@ -94,6 +97,7 @@
 <script>
 import AppButton from "@/components/shared-components/AppButton";
 import BaseInput from "@/components/shared-components/BaseInput";
+import i18n from "@/locales/i18n";
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "NavigationDrawer",
@@ -313,24 +317,22 @@ export default {
     end(el) {
       el.style.height = "";
     },
+    changeLanguage(lang) {
+      localStorage.setItem("lang", lang);
+      i18n.locale = lang;
+    },
+  },
+  created() {
+    if (!localStorage.getItem("lang")) {
+      localStorage.setItem("lang", "uz");
+    }
+    i18n.locale = localStorage.getItem("lang");
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/styles/abstracts/variables";
-.accordion-enter-active,
-.accordion-leave-active {
-  will-change: height, opacity;
-  transition: height 0.3s ease, opacity 0.3s ease;
-  overflow: hidden;
-}
-
-.accordion-enter,
-.accordion-leave-to {
-  height: 0 !important;
-  opacity: 0;
-}
 .navigation-drawer::-webkit-scrollbar {
   width: 0px;
   height: 8px;
@@ -352,13 +354,9 @@ export default {
   align-items: center;
   ul li {
     list-style: none;
-    display: inline-flex;
-    align-items: center;
+    display: inline-block;
     padding: 0 12px 0 12px;
-    height: 40px;
-    border-radius: 10px;
     &.active {
-      background-color: #f6f6f8;
       a {
         color: #a30041;
       }
@@ -418,6 +416,10 @@ export default {
       color: $color-main;
     }
   }
+}
+.border__bottom {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(127, 127, 155, 0.15);
 }
 @media (max-width: 500px) {
   .navigation-drawer {

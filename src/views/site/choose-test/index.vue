@@ -7,7 +7,7 @@
             :size="isMobileSmall ? 22 : isMobile ? 26 : 30"
             :line-height="isMobileSmall ? 26 : isMobile ? 30 : 36"
             weight="700"
-            class="mb-10 color-text"
+            class="mb-10 color-secondary"
           >
             Abiturientlar va o'quvchilar uchun test topshirish tizimi
           </app-text>
@@ -15,6 +15,7 @@
             :size="isMobileSmall ? 12 : 14"
             :line-height="isMobileSmall ? 16 : 26"
             weight="500"
+            class="color-text"
           >
             DTM talablari asosida tuzilgan 100 000 ta test savollaridan
             foydalangan holda test topshirish imkoni

@@ -7,27 +7,30 @@
       </div>
     </div>
     <div class="app-card__content">
-      <div class="app-card__link" @click="goToLink">
-        <img src="/icons/redirect.svg" alt="" />
+      <div>
+        <app-text
+          :size="isMobile ? 16 : 18"
+          class="app-card__title color-secondary mb-10"
+          max-lines="2"
+          line-height="24"
+          weight="700"
+          tag="h3"
+        >
+          {{ title }}
+        </app-text>
+        <app-text
+          class="color-text"
+          size="14"
+          line-height="20"
+          weight="500"
+          max-lines="4"
+        >
+          {{ subtitle }}
+        </app-text>
       </div>
-      <app-text
-        :size="isMobile ? 16 : 18"
-        class="app-card__title mb-10"
-        max-lines="2"
-        line-height="24"
-        weight="700"
-        tag="h3"
-      >
-        {{ title }}
-      </app-text>
-      <app-text
-        class="color-trans-04"
-        size="14"
-        line-height="20"
-        weight="500"
-        max-lines="4"
-        >{{ subtitle }}
-      </app-text>
+      <div class="app-card__link" @click="goToLink">
+        <img src="/icons/angle-right.svg" style="max-width: 16px" />
+      </div>
     </div>
   </div>
 </template>
