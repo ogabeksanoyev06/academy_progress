@@ -183,16 +183,17 @@
                   </div>
                 </transition>
               </div>
-              <div
-                class="hamburger__menu"
+              <AppButton
+                theme="secondary"
+                :font-size="isMobileSmall ? 12 : isMobile ? 14 : 16"
+                sides="20"
+                height="40"
                 @click="showNavigationDrawer"
                 :class="{ active: navigationDrawer }"
                 v-if="isDesktopMedium"
               >
-                <button type="button" class="">
-                  <img src="/icons/menu.svg" style="max-width: 20px" />
-                </button>
-              </div>
+                <img src="/icons/menu.svg" style="max-width: 20px" />
+              </AppButton>
             </div>
           </div>
         </div>
