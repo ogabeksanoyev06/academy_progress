@@ -91,15 +91,12 @@
 .color-main {
   color: $color-main;
 }
-
 .color-secondary {
   color: $color-secondary;
 }
-
 .color-text {
   color: $color-text;
 }
-
 .color-danger {
   color: $color-danger;
 }
@@ -201,10 +198,10 @@
   justify-content: space-between;
   border-radius: 15px;
   transition: 0.3s;
-  box-shadow: 0 0px 5px #a30041 !important;
+  box-shadow: 0 0px 10px #104798 !important;
   position: relative;
   &:hover {
-    box-shadow: 0 0px 15px #a30041 !important;
+    box-shadow: 0 0px 15px #104798 !important;
   }
 }
 

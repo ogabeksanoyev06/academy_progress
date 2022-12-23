@@ -1,5 +1,5 @@
 <template>
-  <div class="auth" style="background-image: url('/images/register.jpg')">
+  <div class="auth" style="background-color: rgb(245, 249, 253)">
     <div class="auth__column auth__content">
       <div class="auth__wrap">
         <div

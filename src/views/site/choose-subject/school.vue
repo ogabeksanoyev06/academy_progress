@@ -13,10 +13,8 @@
       </div>
       <BlockWrap
         :count="
-          isMobileSmall ? 1 : isMobileMedium ? 2 : isDesktopMedium ? 3 : 5
+          isMobileSmall ? 1 : isMobileMedium ? 2 : isDesktopMedium ? 3 : 4
         "
-        offset-x="12"
-        offset-y="12"
         class="mb-20"
       >
         <AppSmallCard

@@ -1,8 +1,8 @@
 <template>
   <div class="cta__banner mt-20">
-    <div class="cta__banner-photo">
+    <!-- <div class="cta__banner-photo">
       <img :src="photo" alt="" />
-    </div>
+    </div> -->
     <div
       class="cta__banner-content"
       :class="isDesktopSmall ? 'pa-30' : 'pa-60'"
@@ -63,7 +63,8 @@ export default {
   }
 
   &-content {
-    width: calc(100% - 450px);
+    // width: calc(100% - 450px);
+    width: 100%;
   }
 }
 
@@ -73,7 +74,8 @@ export default {
   }
 
   .cta__banner-content {
-    width: calc(100% - 40%);
+    // width: calc(100% - 40%);
+    
   }
 }
 

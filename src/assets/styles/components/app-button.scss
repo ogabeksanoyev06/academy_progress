@@ -89,13 +89,13 @@
       in (
         (
           "main",
-          $color-main,
-          lighten($color-main, 5%),
-          darken($color-main, 5%),
-          #104798,
+          #ffa800,
+          lighten(#ffa800, 5%),
+          darken(#ffa800, 5%),
           white,
           white,
-          #104798
+          white,
+          none
         ),
         (
           "white",
@@ -196,7 +196,7 @@
   }
 
   &--th-main {
-    background: #fff;
+    background: #ffa800;
   }
 
   &--th-secondary {
