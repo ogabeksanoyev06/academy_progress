@@ -11,6 +11,7 @@
     </AppText>
 
     <br />
+
     <BlockWrap
       :count="isMobileSmall ? 1 : isMobileMedium ? 2 : 3"
       offset-x="12"
@@ -19,7 +20,7 @@
     >
       <div class="form-group">
         <BaseInput
-          v-model="form.firstName"
+          v-model="form.name"
           type="text"
           vid="name"
           rules="required|max:255"
@@ -28,7 +29,7 @@
       </div>
       <div class="form-group">
         <BaseInput
-          v-model="form.lastName"
+          v-model="form.surname"
           type="text"
           vid="name"
           rules="required|max:255"
@@ -37,7 +38,7 @@
       </div>
       <div class="form-group">
         <BaseInput
-          v-model="form.login"
+          v-model="form.phone_number"
           type="text"
           vid="name"
           v-mask="'998-## ### ## ##'"
@@ -126,6 +127,7 @@
       font-size="14"
       theme="secondary"
       radius="10"
+      @click="registerUser"
     >
       Ro'yxatdan o'tish
     </AppButton>
@@ -150,20 +152,35 @@ import AppButton from "../../shared-components/AppButton";
 import BaseInput from "../../shared-components/BaseInput";
 import BlockWrap from "../../shared-components/BlockWrap";
 import BaseSelect from "../../../components/shared-components/BaseSelect";
+// import AppRadio from "@/components/shared-components/AppRadio";
+// import axios from "axios";
 
 export default {
   name: "AppRegister",
   components: { AppButton, BaseInput, BlockWrap, BaseSelect },
   data() {
     return {
+      radios: "",
       form: {
-        lastName: "",
-        firstName: "",
-        telefon: null,
-        login: "",
+        name: "",
+        surname: "",
+        phone_number: "",
+        client_type: "student",
         password: "",
-        passwordConfirmation: "",
+        viloyat_id: null,
+        tumen_id: null,
+        school_id: null,
       },
+      options: [
+        {
+          label: "Maktab O'quvchimisiz ?",
+          radioValue: "student",
+        },
+        {
+          label: "Maktabni tugatganmisiz ?",
+          radioValue: "people",
+        },
+      ],
       passwordField: false,
       passwordConfirmationField: false,
       classes: [],
@@ -176,6 +193,26 @@ export default {
     },
     confirmationSee() {
       this.passwordConfirmationField = !this.passwordConfirmationField;
+    },
+    registerUser() {
+      this.loading = true;
+      this.$api
+        .post("register", this.form)
+        .then((res) => {
+          if (!res.error) {
+            console.log(res);
+            this.$router.push({ name: "login" });
+            console.log("oxshadi");
+          } else {
+            console.log("im here baby");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     },
   },
 };

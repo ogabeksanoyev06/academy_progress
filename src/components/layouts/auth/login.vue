@@ -17,10 +17,9 @@
     >
       <div class="form-group mt-5">
         <BaseInput
-          v-model="request.login"
+          v-model="request.phone_number"
           type="text"
           vid="name"
-          v-mask="'998-#########'"
           rules="required|max:255"
           label="Telefon raqami"
           placeholder="998-991234567"
@@ -83,6 +82,7 @@
       font-size="14"
       theme="secondary"
       radius="10"
+      @click="loginToSystem"
     >
       Kirish
     </AppButton>
@@ -107,15 +107,16 @@ import AppButton from "../../shared-components/AppButton";
 import BaseInput from "../../shared-components/BaseInput";
 import BlockWrap from "../../shared-components/BlockWrap";
 import BaseCheckbox from "../../shared-components/BaseCheckbox";
+import TokenService from "@/service/TokenService";
+// import axios from "axios";
 export default {
   name: "AppLogin",
   components: { BaseInput, AppButton, BaseCheckbox, BlockWrap },
   data() {
     return {
       request: {
-        login: "",
-        password: "",
-        client_id: 1,
+        phone_number: "+998932110173",
+        password: "12345678",
       },
       errorMes: "",
       authError: "",
@@ -125,6 +126,22 @@ export default {
   methods: {
     showPasswordMethod() {
       this.showPassword = !this.showPassword;
+    },
+    loginToSystem() {
+      this.$api
+        .post("login", this.request)
+        .then((data) => {
+          if (data.error) {
+            this.errorMes = data.error;
+          } else {
+            TokenService.saveToken(data.authorization.token);
+            this.$router.push({ name: "home" });
+            this.request.password = "";
+          }
+        })
+        .catch((error) => {
+          this.errorMes = error.response.data.error.message;
+        });
     },
   },
 };

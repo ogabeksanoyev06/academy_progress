@@ -5,6 +5,7 @@
       <router-view />
     </div>
     <AppFooter />
+    <notifications group="admin" position="top right" :width="350" />
   </div>
 </template>
 

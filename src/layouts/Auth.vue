@@ -41,6 +41,7 @@
         </div>
       </div>
     </div>
+    <notifications group="admin" position="top right" :width="350" />
   </div>
 </template>
 

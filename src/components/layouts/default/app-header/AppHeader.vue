@@ -113,7 +113,15 @@
                 v-on-click-outside:excludedClass="hideLanguageDropdown"
               >
                 <div class="header__language-icon">
-                  <img src="/icons/globe.svg" alt="" />
+                  <img src="/icons/globe.svg" alt="" class="mb-5" />
+                  <app-text
+                    size="14"
+                    line-height="18"
+                    weight="700"
+                    class="color-main"
+                  >
+                    Oʻzbek
+                  </app-text>
                 </div>
                 <transition name="slide">
                   <div class="header__dropdown" v-if="languageDropdown">
@@ -126,7 +134,7 @@
                       >
                         <a class="header__dropdown-link pa-10">
                           <AppText size="14" line-height="18" weight="700">
-                            Uzbek
+                            Oʻzbek
                           </AppText>
                         </a>
                       </li>
@@ -155,7 +163,15 @@
                 <img :src="baseURL + user.photo" alt="" />
               </div> -->
                 <div class="header__account-photo">
-                  <img src="/images/accaunt1.png" alt="" />
+                  <img src="/icons/account.svg" alt="" class="mb-5" />
+                  <app-text
+                    size="14"
+                    line-height="18"
+                    weight="700"
+                    class="color-main"
+                  >
+                    Profil
+                  </app-text>
                 </div>
                 <transition name="slide">
                   <div class="header__dropdown" v-if="accountDropdown">

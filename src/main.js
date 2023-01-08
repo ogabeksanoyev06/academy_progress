@@ -9,13 +9,31 @@ import "./assets/styles/main.scss";
 import "./plugins/media/media-mixin";
 import "./plugins/directives/click-outside";
 import "./plugins/mixins/mixin";
+import TokenService from "./service/TokenService";
+import api from "./service/apiService";
+import axios from "axios/index";
+import Notifications from "vue-notification";
+import velocity from "velocity-animate";
 import i18n from "./locales/i18n";
 import VueMask from "v-mask";
 import Moment from "vue-moment";
 import * as veeValidate from "./plugins/vee-validate/vee-validate";
 
 Vue.config.productionTip = false;
+axios.interceptors.response.use(
+  (res) => res,
+  (error) => {
+    if (error.response && error.response.status === 401) {
+      TokenService.removeToken();
+      TokenService.removeRefreshToken();
+      router.push({ name: "login" });
+    }
+    return Promise.reject(error);
+  }
+);
 Vue.component("AppText", AppText);
+Vue.use(api);
+Vue.use(Notifications, { velocity });
 Vue.use(VueKatex, {
   globalOptions: {
     delimiters: [

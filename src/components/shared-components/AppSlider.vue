@@ -9,50 +9,26 @@
             </div>
           </div>
         </div>
-        <app-button
-          v-if="showPreviousArrow"
-          key="1"
-          class="app-slider__button-previous"
-          width="50"
-          flex
-          height="50"
-          radius="100"
-          shadow="medium"
-          theme="white"
-          @click="previous"
-        >
-          <img src="/icons/angle-left.svg" alt="" />
-        </app-button>
-        <app-button
-          v-if="showNextArrow"
-          key="2"
-          class="app-slider__button-next"
-          width="50"
-          flex
-          height="50"
-          radius="100"
-          shadow="medium"
-          theme="white"
-          @click="next"
-        >
-          <img src="/icons/angle-right.svg" alt="" />
-        </app-button>
+        <div class="app-slider__btn">
+          <button key="1" class="app-slider__button-previous" @click="previous">
+            <img src="/icons/angle-right.svg" alt="" />
+          </button>
+          <button key="2" class="app-slider__button-next" @click="next">
+            <img src="/icons/angle-right.svg" alt="" />
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import AppButton from "./AppButton";
-
 const SplideJS = () => import("@splidejs/splide");
 import "@splidejs/splide/dist/css/splide-core.min.css";
 import "../../assets/styles/components/app-slider.scss";
 
 export default {
   name: "AppSlider",
-  components: {
-    AppButton,
-  },
+  components: {},
   props: {
     list: {
       type: Array,
@@ -169,32 +145,12 @@ export default {
     padding-left: 30px;
     padding-right: 30px;
   }
-
-  .app-slider__button-next {
-    right: -45px !important;
-  }
-
-  .app-slider__button-previous {
-    left: -45px !important;
-  }
 }
 
 @media (max-width: 991px) {
   .app-slider {
     padding-left: 10px;
     padding-right: 10px;
-  }
-
-  .app-slider__button-next {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    right: -30px !important;
-  }
-
-  .app-slider__button-previous {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    left: -30px !important;
   }
 }
 
